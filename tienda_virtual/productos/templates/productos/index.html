@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/styles.css' %}"
+    />
+    <title>Productos</title>
+  </head>
+  <body>
+    <header>
+      <h1>Lista de Productos</h1>
+    </header>
+    
+    <nav>
+      <a href="{% url 'index' %}">Inicio</a>
+      <br />
+      <a href="{% url 'ofertas:index' %}">Ofertas</a>
+    </nav>
+    <br />
+
+    <div class="container">
+      <table>
+        <thead>
+          <tr>
+            <th>NOMBRE</th>
+            <th>PRECIO</th>
+            <th>CATEGORIA</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for producto in productos %}
+          <tr>
+            <td>{{ producto.nombre }}</td>
+            <td>{{ producto.precio }}</td>
+            <td>{{ producto.categoria.nombre }}</td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="3">
+              <h4>No hay productos</h4>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <br />
+    <script src="{% static 'js/scripts.js' %}"></script>
+  </body>
+</html>

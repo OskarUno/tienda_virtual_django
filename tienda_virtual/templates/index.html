@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <title>Pagina Principal</title>
+  </head>
+  <body>
+    <header>
+      <h1>PAGINA PRINCIPAL</h1>
+    </header>
+
+    <nav>
+      <a href="{% url 'productos:index' %}">Productos</a>
+      <br />
+      <a href="{% url 'ofertas:index' %}">Ofertas</a>
+    </nav>
+
+    <br />
+    <div class="container">
+      <button id="show-alert">Presiona Aqui</button>
+    </div>
+    <script src="{% static 'js/scripts.js' %}"></script>
+  </body>
+</html>
